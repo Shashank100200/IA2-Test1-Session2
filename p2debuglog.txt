@@ -1,0 +1,117 @@
+gcc -g p2final.c
+ ./a.out
+Enter the side length:
+2
+Enter the side length:
+5
+Enter the side length:
+3
+The triangle is a scalene triangle
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7f5: file p2final.c, line 25.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:25
+25  {
+(gdb) n
+27    a=input_side();
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     printf("Enter the side length:\n");
+(gdb) n
+Enter the side length:
+6     scanf("%d",&x);
+(gdb) n
+2
+7     return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:28
+28    b=input_side();
+(gdb) p a
+$1 = 2
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     printf("Enter the side length:\n");
+(gdb) n
+Enter the side length:
+6     scanf("%d",&x);
+(gdb) n
+5
+7     return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:29
+29    c=input_side();
+(gdb) p b
+$2 = 5
+(gdb) s
+input_side () at p2final.c:3
+3   {
+(gdb) n
+5     printf("Enter the side length:\n");
+(gdb) n
+Enter the side length:
+6     scanf("%d",&x);
+(gdb) n
+3
+7     return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:30
+30    check_scalene(a,b,c,&isscalene);
+(gdb) p c
+$3 = 3
+(gdb) s
+check_scalene (a=2, b=5, c=3, isscalene=0x7ffcdfdead28) at p2final.c:11
+11    if((a!=b) && (b!=c) && (a!=c))
+(gdb) n
+12    *isscalene=1;
+(gdb) n
+15  }
+(gdb) n
+main () at p2final.c:31
+31    output(a,b,c,isscalene);
+(gdb) s
+output (a=2, b=5, c=3, isscalene=1) at p2final.c:18
+18    if(isscalene==1)
+(gdb) n
+19    printf("The triangle is a scalene triangle\n");
+(gdb) n
+The triangle is a scalene triangle
+23  }
+(gdb) n
+main () at p2final.c:32
+32    return 0;
+(gdb) n
+33  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 176] will be killed.
+
+Quit anyway? (y or n) y
