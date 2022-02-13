@@ -1,0 +1,117 @@
+gcc -g p5final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x865: file p5final.c, line 34.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5final.c:34
+34    int num1 = input();
+(gdb) s
+input () at p5final.c:3
+3   {
+(gdb) n
+5     printf("Enter a number:\n");
+(gdb) n
+Enter a number:
+6     scanf("%d", &num);
+(gdb) n
+4
+7     return num;
+(gdb) n
+8   }
+(gdb) n
+main () at p5final.c:35
+35    int num2 = input();
+(gdb) p num1
+$1 = 4
+(gdb) s
+input () at p5final.c:3
+3   {
+(gdb) n
+5     printf("Enter a number:\n");
+(gdb) n
+Enter a number:
+6     scanf("%d", &num);
+(gdb) n
+8
+7     return num;
+(gdb) n
+8   }
+(gdb) n
+main () at p5final.c:36
+36    int res = gcd(num1, num2);
+(gdb) p num2
+$2 = 8
+(gdb) s
+gcd (a=4, b=8) at p5final.c:11
+11      int large = a > b ? a : b;
+(gdb) n
+12      int small = a < b ? a : b;
+(gdb) n
+13      int i = 1;
+(gdb) n
+14      int rem = 1;
+(gdb) n
+15  while (rem)
+(gdb) n
+17          rem = large - i * small;
+(gdb) n
+18          if (rem < small)
+(gdb) n
+24          i++;
+(gdb) n
+15  while (rem)
+(gdb) n
+17          rem = large - i * small;
+(gdb) n
+18          if (rem < small)
+(gdb) n
+20              large = small;
+(gdb) n
+21              small = rem;
+(gdb) n
+22              i = 0;
+(gdb) n
+24          i++;
+(gdb) n
+15  while (rem)
+(gdb) n
+26      return large;
+(gdb) n
+27  }
+(gdb) n
+main () at p5final.c:37
+37    output(num1, num2, res);
+(gdb) s
+output (a=4, b=8, gcd=4) at p5final.c:30
+30    printf("The gcd of %d and %d is %d\n", a, b, gcd);
+(gdb) n
+The gcd of 4 and 8 is 4
+31  }
+(gdb) n
+main () at p5final.c:38
+38    return 0;
+(gdb) n
+39  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 241] will be killed.
+
+Quit anyway? (y or n) y
