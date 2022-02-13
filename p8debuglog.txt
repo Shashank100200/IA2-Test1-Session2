@@ -1,0 +1,136 @@
+ 
+ gcc -g p8final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+ 
+ gcc -g p8final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0xaf9: file p8final.c, line 62.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p8final.c:62
+62  {
+(gdb) n
+63    int count = input_n();
+(gdb) s
+input_n () at p8final.c:7
+7   {
+(gdb) n
+9     printf("How many triangles will you enter:\n");
+(gdb) n
+How many triangles will you enter:
+10    scanf("%d\n", &n);
+(gdb) n
+2
+4
+11    return n;
+(gdb) n
+12  }
+(gdb) n
+main () at p8final.c:64
+64    Triangle tris[count];
+(gdb) s
+65    input_n_triangles(count, tris);
+(gdb) n
+Enter the base, altitude of a triangle:
+2
+Enter the base, altitude of a triangle:
+4
+2
+66    find_areas(count, tris);
+(gdb) s
+find_areas (n=2, t=0x7ffde5821f50) at p8final.c:34
+34    for (int i = 0; i < n; i++)
+(gdb) n
+36      find_area(&t[i]);
+(gdb) n
+34    for (int i = 0; i < n; i++)
+(gdb) n
+36      find_area(&t[i]);
+(gdb) n
+34    for (int i = 0; i < n; i++)
+(gdb) n
+38  }
+(gdb) n
+main () at p8final.c:67
+67    Triangle small = find_smallest_triangle(count, tris);
+(gdb) s
+find_smallest_triangle (n=2, t=0x7ffde5821f50) at p8final.c:42
+42    small = t[0];
+(gdb) n
+44    for (int i = 0; i < n; i++)
+(gdb) n
+46      if (small.area > t[i].area)
+(gdb) n
+44    for (int i = 0; i < n; i++)
+(gdb) n
+46      if (small.area > t[i].area)
+(gdb) n
+44    for (int i = 0; i < n; i++)
+(gdb) n
+51    return small;
+(gdb) n
+52  }
+(gdb) n
+main () at p8final.c:68
+68    output(count, tris, small);
+(gdb) s
+output (n=2, t=0x7ffde5821f50, smallest=...) at p8final.c:55
+55    for (int i = 0; i < n - 1; i++)
+(gdb) n
+57      printf("%f, %f and\n", t[i].base, t[i].altitude);
+(gdb) n
+4.000000, 2.000000 and
+55    for (int i = 0; i < n - 1; i++)
+(gdb) n
+59    printf("%f, %f\nis\ntriangle with base = %f and altitude = %f having area = %f\n", t[n-1].base, t[n-1].altitude, smallest.base, smallest.altitude, smallest.area);
+(gdb) print smallest area
+A syntax error in expression, near `area'.
+(gdb) n
+4.000000, 2.000000
+is
+triangle with base = 4.000000 and altitude = 2.000000 having area = 4.000000
+60  }
+(gdb) n
+main () at p8final.c:69
+69    return 0;
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 1579] will be killed.
+
+Quit anyway? (y or n) y
+ 
