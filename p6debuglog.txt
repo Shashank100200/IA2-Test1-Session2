@@ -1,0 +1,121 @@
+gcc -g p6final.c
+ ./a.out
+Enter the string:
+hello
+The reverse of hello is olleh
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+ 
+ gcc -g p6final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x85c: file p6final.c, line 25.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:25
+25  {
+(gdb) n
+27    input_string(str);
+(gdb) s
+input_string (a=0x7ffe08544a24 "\214U") at p6final.c:4
+4     printf("Enter the string:\n");
+(gdb) n
+Enter the string:
+5     scanf("%s", a);
+(gdb) n
+hello
+6   }
+(gdb) n
+main () at p6final.c:29
+29    str_reverse(str, rev_str);
+(gdb) s
+str_reverse (str=0x7ffe08544a24 "hello", rev_str=0x7ffe08544a2e "")
+    at p6final.c:10
+10    for (n = 0; str[n]; n++);
+(gdb) n
+11    n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+15      rev_str[i] = str[n];
+(gdb) n
+16      n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+15      rev_str[i] = str[n];
+(gdb) n
+16      n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+15      rev_str[i] = str[n];
+(gdb) n
+16      n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+15      rev_str[i] = str[n];
+(gdb) n
+16      n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+15      rev_str[i] = str[n];
+(gdb) n
+16      n--;
+(gdb) n
+13    for (i = 0; str[i]; i++)
+(gdb) n
+18    rev_str[i] = '\0';
+(gdb) n
+19  }
+(gdb) n
+main () at p6final.c:30
+30    output(str, rev_str);
+(gdb) s
+output (a=0x7ffe08544a24 "hello", reverse_a=0x7ffe08544a2e "olleh")
+    at p6final.c:22
+22    printf("The reverse of %s is %s\n", a, reverse_a);
+(gdb) n
+The reverse of hello is olleh
+23  }
+(gdb) n
+main () at p6final.c:31
+31    return 0;
+(gdb) n
+32  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 398] will be killed.
+
+Quit anyway? (y or n) y
