@@ -45,7 +45,7 @@ Triangle find_smallest_triangle(int n, Triangle t[n])
   {
     if (small.area > t[i].area)
     {
-      small= t[i];
+      small = t[i];
     }
   }
   return small;
